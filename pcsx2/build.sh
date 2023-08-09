@@ -27,7 +27,7 @@ git submodule update --init --recursive
 # https://wiki.pcsx2.net/PCSX2_Documentation/Compiling_on_Linux
 mkdir -p build
 pushd build
-cmake -GNinja -DWAYLAND_API=false -DCMAKE_BUILD_TYPE=Release ..
+cmake -GNinja -DWAYLAND_API=false -DDISABLE_ADVANCE_SIMD=true -DCMAKE_BUILD_TYPE=Release ..
 ninja
 popd
 
