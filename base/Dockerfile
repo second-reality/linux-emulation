@@ -20,3 +20,5 @@ RUN cd /usr/bin && \
     wget https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage && \
     wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage && \
     chmod +x *AppImage
+
+RUN apt update && apt install -y git cmake build-essential ninja-build imagemagick
