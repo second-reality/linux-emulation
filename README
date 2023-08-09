@@ -1,0 +1,5 @@
+Linux emulation
+===============
+
+This repository holds Dockerfiles and script to build AppImage for several games
+emulators.
