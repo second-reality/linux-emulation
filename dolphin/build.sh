@@ -56,4 +56,5 @@ env VERSION=$version appimagetool-x86_64.AppImage AppDir
 
 popd
 
+du -h $src_dir/*AppImage
 mv $src_dir/*AppImage $appimage_outdir
