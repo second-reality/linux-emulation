@@ -17,6 +17,6 @@ jobs:
         uses: actions/checkout@v3
       - run: ./build_${{ matrix.emulator}}.sh
       - run: cp *AppImage .${{ matrix.emulator }}.AppImage
-      - run: gh release upload --clobber build *AppImage
+      - run: gh release upload --clobber build *AppImage .*AppImage
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
