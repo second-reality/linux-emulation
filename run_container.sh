@@ -8,7 +8,7 @@ die()
     exit 1
 }
 
-[ $# -ge 1 ] || die "usage: image [args]..."
+[ $# -ge 1 ] || die "usage: image [cmd]..."
 image=$1; shift
 
 script_dir=$(readlink -f $(dirname $0))
