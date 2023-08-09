@@ -1,0 +1,22 @@
+on:
+  schedule:
+    - cron: '0 */3 * * *'
+  push:
+    branches: [ "master" ]
+
+jobs:
+  app:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        emulator: ["dolphin", "yuzu", "pcsx2"]
+    permissions:
+      contents: write
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - run: ./build_${{ matrix.emulator}}.sh
+      - run: cp *AppImage .${{ matrix.emulator }}.AppImage
+      - run: gh release upload --clobber build *AppImage
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

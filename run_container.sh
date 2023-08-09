@@ -28,6 +28,10 @@ podman build $script_dir/base -t linux-emulation-base:23.04 \
 target=linux-emulation-$image
 podman build $script_dir/$image -t $target
 
+# handle not defined variables
+export DISPLAY=${DISPLAY:-:0}
+export XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-/var/run/$UID}
+
 # run container
 podman run --rm -it --privileged \
     -w "$(pwd)" \
