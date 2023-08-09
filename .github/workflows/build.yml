@@ -12,14 +12,12 @@ jobs:
         emulator: ["dolphin", "yuzu", "pcsx2"]
     permissions:
       contents: write
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: checkout
         uses: actions/checkout@v3
       - run: ./build_${{ matrix.emulator}}.sh
       - run: gh release upload --clobber build *AppImage
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: mv *AppImage ${{ matrix.emulator}}.AppImage
       - run: gh release upload --clobber latest ${{ matrix.emulator}}.AppImage
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
