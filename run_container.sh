@@ -26,7 +26,11 @@ podman build $script_dir/base -t linux-emulation-base:23.04 \
     --build-arg=UBUNTU_NAME=lunar
 
 target=linux-emulation-$image
-podman build $script_dir/$image -t $target
+if [ $image == base ]; then
+    target=linux-emulation-base:22.04
+else
+    podman build $script_dir/$image -t $target
+fi
 
 # handle not defined variables
 export DISPLAY=${DISPLAY:-:0}
