@@ -52,8 +52,6 @@ env QMAKE=/usr/bin/qmake6 VERSION=$version \
     -e ./build/bin/pcsx2-qt \
     --appdir AppDir \
     --plugin qt \
-    --library /usr/lib/x86_64-linux-gnu/libpulse.so.0 \
-    --library /usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-*.so \
     --desktop-file=pcsx2.desktop \
     --icon-file=pcsx2.png
 
