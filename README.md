@@ -46,3 +46,11 @@ Thus, to build an AppImage, we simply call:
 
 By doing this, our builds are independent from host machine, and can be run on
 any distribution.
+
+Emulators
+---------
+
+- [Dolphin (GameCube/Wii)](https://dolphin-emu.org/) - [GitHub](https://github.com/dolphin-emu/dolphin)
+- [PCSX2 (PlayStation 2)](https://pcsx2.net/) - [GitHub](https://github.com/PCSX2/pcsx2)
+- [RPCS3 (PlayStation 3)](https://rpcs3.net/) - [GitHub](https://github.com/RPCS3/rpcs3)
+- [Yuzu (Nintendo Switch)](https://yuzu-emu.org/) - [GitHub](https://github.com/yuzu-emu/yuzu)
