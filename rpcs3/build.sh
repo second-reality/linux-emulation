@@ -26,7 +26,7 @@ version=$(git rev-list HEAD --count --first-parent)
 git submodule update --init --recursive
 mkdir -p build
 pushd build
-cmake -GNinja -DCMAKE_BUILD_TYPE=Release ..
+cmake -GNinja -DUSE_NATIVE_INSTRUCTIONS=false -DCMAKE_BUILD_TYPE=Release ..
 ninja
 popd
 
