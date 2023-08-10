@@ -48,6 +48,7 @@ env VERSION=$version \
     linuxdeploy-x86_64.AppImage \
     -e ./build/bin/yuzu \
     --appdir AppDir \
+    --plugin qt \
     --desktop-file=yuzu.desktop \
     --icon-file=dist/qt_themes/default/icons/256x256/yuzu.png
 
