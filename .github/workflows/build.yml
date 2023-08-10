@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        emulator: ["dolphin", "yuzu", "pcsx2"]
+        emulator: ["dolphin", "yuzu", "pcsx2", "rpcs3"]
     permissions:
       contents: write
     env:
