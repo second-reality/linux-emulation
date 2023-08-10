@@ -3,6 +3,8 @@ Linux emulation
 
 This repository builds AppImages for several games emulators.
 
+Minimal distribution expected is latest Ubuntu LTS.
+
 Build is fully automated on [GitHub Actions](https://github.com/second-reality/linux-emulation/blob/master/.github/workflows/build.yml)
 and is scheduled every few hours.
 
