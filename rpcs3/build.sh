@@ -48,6 +48,7 @@ env QMAKE=/usr/bin/qmake6 VERSION=$version \
     -e ./build/bin/rpcs3 \
     --appdir AppDir \
     --plugin qt \
+    --plugin gstreamer \
     --desktop-file=rpcs3.desktop \
     --icon-file=rpcs3/rpcs3.png
 

@@ -25,6 +25,10 @@ RUN cd /usr/bin && \
     wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage && \
     chmod +x *AppImage
 
+RUN cd /usr/bin &&\
+    wget https://raw.githubusercontent.com/linuxdeploy/linuxdeploy-plugin-gstreamer/master/linuxdeploy-plugin-gstreamer.sh &&\
+    chmod +x *.sh
+
 RUN apt update && apt install -y git cmake build-essential ninja-build imagemagick
 
 # add some tools to help debug containers
