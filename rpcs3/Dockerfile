@@ -6,3 +6,9 @@ RUN apt update && apt install -y build-essential libasound2-dev libpulse-dev lib
 RUN apt update && apt install -y qt6-base-dev libqt6svg6-dev qt6-multimedia-dev qt6-base-private-dev
 # other deps
 RUN apt update && apt install -y libyaml-cpp-dev
+
+# add latest cmake
+RUN cd /tmp && \
+    wget -q https://github.com/Kitware/CMake/releases/download/v3.27.3/cmake-3.27.3-linux-x86_64.sh &&\
+    bash cmake-*.sh --skip-license --prefix=/usr &&\
+    rm -rf /tmp/*
