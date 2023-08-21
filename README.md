@@ -1,7 +1,7 @@
 Linux emulation
 ===============
 
-This repository builds AppImages for several games emulators.
+This repository builds [AppImage](https://appimage.org/) for several games emulators.
 
 Minimal distribution expected is latest Ubuntu LTS.
 
