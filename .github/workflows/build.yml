@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        emulator: ["dolphin", "yuzu", "pcsx2", "rpcs3"]
+        emulator: ["dolphin", "yuzu", "pcsx2", "rpcs3", "snes9x"]
     permissions:
       contents: write
     env:
