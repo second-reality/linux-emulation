@@ -24,6 +24,10 @@ git checkout $version
 version=$(git rev-list HEAD --count --first-parent)
 
 git submodule update --init --recursive
+
+# fix version of SDL
+sed -e 's/SDL2.*REQUIRED/SDL2 REQUIRED/' -i cmake/SearchForStuff.cmake
+
 # https://wiki.pcsx2.net/PCSX2_Documentation/Compiling_on_Linux
 mkdir -p build
 pushd build
