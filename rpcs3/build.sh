@@ -23,17 +23,10 @@ git fetch -a
 git checkout $version
 version=$(git rev-list HEAD --count --first-parent)
 
-qt_dir=/opt/qt-6.5.2/gcc_64/
-qt_cmake_dir=${qt_dir}/lib/cmake
-
 git submodule update --init --recursive
 mkdir -p build
 pushd build
-cmake -GNinja -DUSE_NATIVE_INSTRUCTIONS=false -DCMAKE_BUILD_TYPE=Release\
-    -DQt6_DIR=${qt_cmake_dir}/Qt6/ \
-    -DQt6CoreTools_DIR=${qt_cmake_dir}/Qt6CoreTools/ \
-    -DQt6GuiTools_DIR=${qt_cmake_dir}/Qt6GuiTools/ \
-    ..
+cmake -GNinja -DUSE_NATIVE_INSTRUCTIONS=false -DCMAKE_BUILD_TYPE=Release ..
 ninja
 popd
 
@@ -50,7 +43,7 @@ GenericName=PS3 Emulator
 Comment=A PS3 Emulator
 EOF
 
-env QMAKE=${qt_dir}/bin/qmake VERSION=$version \
+env QMAKE=/usr/bin/qmake6 VERSION=$version \
     linuxdeploy-x86_64.AppImage \
     -e ./build/bin/rpcs3 \
     --appdir AppDir \

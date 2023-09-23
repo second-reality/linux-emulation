@@ -11,8 +11,12 @@ RUN cd /tmp && \
     bash cmake-*.sh --skip-license --prefix=/usr &&\
     rm -rf /tmp/*
 
-# Latest Qt (6.5.2)
+# Latest Qt
+ENV QT_VERSION=6.5.2
 RUN pip install aqtinstall
-RUN aqt install-qt linux desktop 6.5.2 --modules all && mv 6.5.2 /opt/qt-6.5.2/
+RUN cd tmp &&\
+    aqt install-qt linux desktop ${QT_VERSION} --modules all &&\
+    rsync -a ${QT_VERSION}/gcc_64/ /usr/ &&\
+    rm -rf /tmp/*
 # Needed deps for Qt
 RUN apt update && apt install -y libxkbcommon-x11-dev libxcb-*-dev libgstreamer-plugins-base*
