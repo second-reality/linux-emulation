@@ -15,7 +15,7 @@ RUN cd /tmp && \
 ENV QT_VERSION=6.5.2
 RUN pip install aqtinstall
 RUN cd tmp &&\
-    aqt install-qt linux desktop ${QT_VERSION} --modules all &&\
+    aqt install-qt linux desktop ${QT_VERSION} --modules qtmultimedia &&\
     rsync -a ${QT_VERSION}/gcc_64/ /usr/ &&\
     rm -rf /tmp/*
 # Needed deps for Qt
