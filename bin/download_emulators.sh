@@ -12,6 +12,7 @@ for script in build_*; do
     emulator=$(echo $script | sed -e 's/build_//' -e 's/.sh$//')
     url=$base_url/$emulator.AppImage
     echo "$emulator -> $(pwd)/bin/$emulator"
-    wget -q --show-progress $url -O bin/$emulator
-    chmod +x bin/$emulator
+    wget -q --show-progress $url -O bin/$emulator.part
+    chmod +x bin/$emulator.part
+    mv bin/$emulator.part bin/$emulator
 done
