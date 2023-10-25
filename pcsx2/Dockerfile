@@ -6,7 +6,7 @@ FROM linux-emulation-base:22.04
 RUN apt update && apt install -y libcurl4-openssl-dev libpcap-dev liblzma-dev libgl1-mesa-dev libaio-dev libpulse-dev libsdl2-dev
 
 # Latest Qt
-ENV QT_VERSION=6.5.3
+ENV QT_VERSION=6.6.0
 RUN pip install aqtinstall
 RUN cd tmp &&\
     aqt install-qt linux desktop ${QT_VERSION} &&\
