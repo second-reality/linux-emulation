@@ -25,7 +25,7 @@ version=$(git rev-list HEAD --count --first-parent)
 
 git submodule update --init --recursive
 # https://github.com/dolphin-emu/dolphin#linux-portable-build-steps
-cmake -GNinja -DLINUX_LOCAL_DEV=true -DCMAKE_BUILD_TYPE=Release .
+cmake -GNinja -DLINUX_LOCAL_DEV=true -DCMAKE_CXX_FLAGS=-Wno-enum-constexpr-conversion -DCMAKE_BUILD_TYPE=Release .
 ninja
 
 cat > dolphin-emu.desktop << EOF
