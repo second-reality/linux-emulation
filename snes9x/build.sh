@@ -19,6 +19,9 @@ fi
 
 pushd $src_dir
 
+# switch to github mirror for libpng mirror (fails when clone from CI)
+git submodule set-url win32/libpng/src https://github.com/glennrp/libpng
+
 git fetch -a
 git checkout $version
 version=$(git rev-list HEAD --count --first-parent)
