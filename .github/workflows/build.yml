@@ -3,6 +3,7 @@ on:
     - cron: '0 */3 * * *'
   push:
     branches: [ "master" ]
+  workflow_dispatch:
 
 jobs:
   app:
