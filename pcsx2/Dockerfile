@@ -1,4 +1,4 @@
-FROM linux-emulation-base:22.04
+FROM linux-emulation-base:23.04
 
 # https://wiki.pcsx2.net/PCSX2_Documentation/Compiling_on_Linux
 
@@ -13,7 +13,7 @@ RUN apt update && apt install -y libcurl4-openssl-dev libpcap-dev liblzma-dev li
 
 # Latest Qt
 ENV QT_VERSION=6.6.0
-RUN pip install aqtinstall
+RUN pip install aqtinstall --break-system-packages
 RUN cd tmp &&\
     aqt install-qt linux desktop ${QT_VERSION} &&\
     rsync -a ${QT_VERSION}/gcc_64/ /usr/ &&\
