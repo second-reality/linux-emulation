@@ -24,9 +24,12 @@ git checkout $version
 version=$(git rev-list HEAD --count --first-parent)
 
 git submodule update --init --recursive
+mkdir -p build
+pushd build
 # https://github.com/dolphin-emu/dolphin#linux-portable-build-steps
-cmake -GNinja -DLINUX_LOCAL_DEV=true -DCMAKE_CXX_FLAGS=-Wno-enum-constexpr-conversion -DCMAKE_BUILD_TYPE=Release .
+cmake -GNinja -DLINUX_LOCAL_DEV=true -DCMAKE_CXX_FLAGS=-Wno-enum-constexpr-conversion -DCMAKE_BUILD_TYPE=Release ..
 ninja
+popd
 
 cat > dolphin-emu.desktop << EOF
 [Desktop Entry]
@@ -43,7 +46,7 @@ EOF
 
 env QMAKE=/usr/bin/qmake6 VERSION=$version \
     linuxdeploy-x86_64.AppImage \
-    -e Binaries/dolphin-emu \
+    -e build/Binaries/dolphin-emu \
     --appdir AppDir \
     --plugin qt \
     --desktop-file=dolphin-emu.desktop \
