@@ -11,8 +11,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        emulator: ["dolphin", "pcsx2", "rpcs3", "snes9x"]
         # yuzu is not available anymore
+        emulator: ["dolphin", "pcsx2", "rpcs3", "snes9x", "ryujinx"]
     permissions:
       contents: write
     env:
