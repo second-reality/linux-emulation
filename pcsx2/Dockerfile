@@ -12,7 +12,7 @@ RUN cd /tmp && \
 RUN apt update && apt install -y libcurl4-openssl-dev libpcap-dev liblzma-dev libgl1-mesa-dev libaio-dev libpulse-dev libsdl2-dev libzstd-dev liblz4-dev libwebp-dev
 
 # Latest Qt
-ENV QT_VERSION=6.6.0
+ENV QT_VERSION=6.6.2
 RUN pip install aqtinstall --break-system-packages
 RUN cd tmp &&\
     aqt install-qt linux desktop ${QT_VERSION} &&\
