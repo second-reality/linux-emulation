@@ -14,7 +14,7 @@ src_dir=$1;shift
 appimage_outdir=$1;shift
 
 if [ ! -d $src_dir ]; then
-    git clone https://github.com/yuzu-emu/yuzu $src_dir
+    git clone https://github.com/suyu-emu/suyu $src_dir
 fi
 
 pushd $src_dir
@@ -24,33 +24,33 @@ git checkout $version
 version=$(git rev-list HEAD --count --first-parent)
 
 git submodule update --init --recursive
-# https://yuzu-emu.org/wiki/building-for-linux/
+# https://git.suyu.dev/suyu/suyu/wiki/Building-for-Linux
 mkdir -p build
 pushd build
-cmake -GNinja -DYUZU_TESTS=false -DCMAKE_BUILD_TYPE=Release ..
+cmake -GNinja -DSUYU_TESTS=OFF -DCMAKE_BUILD_TYPE=Release ..
 ninja
 popd
 
-cat > yuzu.desktop << EOF
+cat > suyu.desktop << EOF
 [Desktop Entry]
 Version=1.0
-Icon=yuzu
-Exec=yuzu
+Icon=suyu
+Exec=suyu
 Terminal=false
 Type=Application
 Categories=Game;Emulator;
-Name=yuzu
+Name=suyu
 GenericName=Switch Emulator
 Comment=A Switch Emulator
 EOF
 
 env VERSION=$version \
     linuxdeploy-x86_64.AppImage \
-    -e ./build/bin/yuzu \
+    -e ./build/bin/suyu \
     --appdir AppDir \
     --plugin qt \
-    --desktop-file=yuzu.desktop \
-    --icon-file=dist/qt_themes/default/icons/256x256/yuzu.png
+    --desktop-file=suyu.desktop \
+    --icon-file=dist/qt_themes/default/icons/256x256/suyu.png
 
 env VERSION=$version appimagetool-x86_64.AppImage AppDir
 
