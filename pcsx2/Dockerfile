@@ -8,16 +8,60 @@ RUN cd /tmp && \
     bash cmake-*.sh --skip-license --prefix=/usr &&\
     rm -rf /tmp/*
 
-# other deps found
-RUN apt update && apt install -y libcurl4-openssl-dev libpcap-dev liblzma-dev libgl1-mesa-dev libaio-dev libpulse-dev libsdl2-dev libzstd-dev liblz4-dev libwebp-dev
+RUN apt update && apt install -y curl unzip
 
-# Latest Qt
-ENV QT_VERSION=6.6.2
-RUN pip install aqtinstall --break-system-packages
-RUN cd tmp &&\
-    aqt install-qt linux desktop ${QT_VERSION} &&\
-    rsync -a ${QT_VERSION}/gcc_64/ /usr/ &&\
-    rm -rf /tmp/*
-# Needed deps for Qt
-RUN apt update && apt install -y libxkbcommon-x11-dev libxcb-*-dev
+# ./.github/workflows/scripts/linux/install-packages-qt.sh
+RUN apt update && apt install -y build-essential\
+ g++\
+ git\
+ cmake\
+ ccache\
+ ninja-build\
+ patchelf\
+ libfuse2\
+ libglib2.0-dev\
+ libfontconfig1-dev\
+ libharfbuzz-dev\
+ libjpeg-dev\
+ liblz4-dev\
+ libpng-dev\
+ libfreetype-dev\
+ libinput-dev\
+ libwebp-dev\
+ libxcb-*-dev\
+ libxkbcommon-dev\
+ libxkbcommon-x11-dev\
+ libxrender-dev\
+ libwayland-dev\
+ libgl1-mesa-dev\
+ libegl-dev\
+ libegl1-mesa-dev\
+ libgl1-mesa-dev\
+ libssl-dev
+
+RUN apt update && apt install -y extra-cmake-modules\
+ libaio-dev\
+ libasound2-dev\
+ libbz2-dev\
+ libcurl4-openssl-dev\
+ libdbus-1-dev\
+ libegl1-mesa-dev\
+ libgl1-mesa-dev\
+ libgtk-3-dev\
+ libharfbuzz-dev\
+ libjpeg-dev\
+ libpcap0.8-dev\
+ libpng-dev\
+ libpulse-dev\
+ librsvg2-dev\
+ libsamplerate0-dev\
+ libudev-dev\
+ libx11-xcb-dev\
+ libavcodec-dev\
+ libavformat-dev\
+ libavutil-dev\
+ libswresample-dev\
+ libswscale-dev\
+ pkg-config\
+ zlib1g-dev
 

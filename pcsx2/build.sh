@@ -25,13 +25,20 @@ version=$(git rev-list HEAD --count --first-parent)
 
 git submodule update --init --recursive
 
-# fix version of SDL
-sed -e 's/SDL2.*REQUIRED/SDL2 REQUIRED/' -i cmake/SearchForStuff.cmake
+deps_folder=$(pwd)/deps
+deps_script=$(pwd)/.github/workflows/scripts/linux/build-dependencies-qt.sh
+
+# build deps
+if ! diff -q $deps_script $deps_folder/version; then
+    rm -rf $deps_folder ${deps_folder}-build # temp dir
+    $deps_script $deps_folder
+    cp $deps_script $deps_folder/version
+fi
 
 # https://wiki.pcsx2.net/PCSX2_Documentation/Compiling_on_Linux
 mkdir -p build
 pushd build
-cmake -GNinja -DWAYLAND_API=false -DDISABLE_ADVANCE_SIMD=true -DCMAKE_BUILD_TYPE=Release ..
+cmake -GNinja -DWAYLAND_API=false -DCMAKE_PREFIX_PATH=$deps_folder -DDISABLE_ADVANCE_SIMD=true -DCMAKE_BUILD_TYPE=Release ..
 ninja
 popd
 
@@ -51,7 +58,7 @@ EOF
 # create icon
 convert -resize 256x256 ./pcsx2-qt/resources/icons/AppIcon64.png pcsx2.png
 
-env QMAKE=/usr/bin/qmake6 VERSION=$version \
+env QMAKE=$deps_folder/bin/qmake VERSION=$version \
     linuxdeploy-x86_64.AppImage \
     -e ./build/bin/pcsx2-qt \
     --appdir AppDir \
