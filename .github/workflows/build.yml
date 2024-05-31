@@ -24,3 +24,16 @@ jobs:
       - run: gh release upload --clobber build *AppImage
       - run: mv *AppImage ${{ matrix.emulator}}.AppImage
       - run: gh release upload --clobber latest ${{ matrix.emulator}}.AppImage
+
+  keepalive-job:
+    name: Keepalive Workflow
+    if: ${{ always() }}
+    needs: app
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gautamkrishnar/keepalive-workflow@v2
+        with:
+          use_api: false
