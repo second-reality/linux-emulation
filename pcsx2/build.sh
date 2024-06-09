@@ -28,6 +28,9 @@ git submodule update --init --recursive
 deps_folder=$(pwd)/deps
 deps_script=$(pwd)/.github/workflows/scripts/linux/build-dependencies-qt.sh
 
+# do not check certificate with curl
+sed -e 's/^curl /curl --insecure /' -i $deps_script
+
 # build deps
 if ! diff -q $deps_script $deps_folder/version; then
     rm -rf $deps_folder ${deps_folder}-build # temp dir
