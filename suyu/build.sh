@@ -14,7 +14,7 @@ src_dir=$1;shift
 appimage_outdir=$1;shift
 
 if [ ! -d $src_dir ]; then
-    git clone https://github.com/suyu-emu/suyu $src_dir
+    git clone https://git.suyu.dev/suyu/suyu $src_dir
 fi
 
 pushd $src_dir
