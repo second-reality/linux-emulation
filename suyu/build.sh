@@ -23,6 +23,8 @@ git fetch -a
 git checkout $version
 version=$(git rev-list HEAD --count --first-parent)
 
+sed -e '/-Werror=/d' -i src/CMakeLists.txt
+
 git submodule update --init --recursive
 # https://git.suyu.dev/suyu/suyu/wiki/Building-for-Linux
 mkdir -p build
