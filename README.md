@@ -53,6 +53,7 @@ Emulators
 ---------
 
 - [Dolphin (GameCube/Wii)](https://dolphin-emu.org/) - [GitHub](https://github.com/dolphin-emu/dolphin)
+- [DuckStation (PlayStation 1)](https://www.duckstation.org/) - [GitHub](https://github.com/stenzek/duckstation)
 - [PCSX2 (PlayStation 2)](https://pcsx2.net/) - [GitHub](https://github.com/PCSX2/pcsx2)
 - [RPCS3 (PlayStation 3)](https://rpcs3.net/) - [GitHub](https://github.com/RPCS3/rpcs3)
 - [Yuzu (Nintendo Switch)](https://yuzu-emu.org/) - [GitHub](https://github.com/yuzu-emu/yuzu)
