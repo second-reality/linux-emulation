@@ -56,6 +56,6 @@ Emulators
 - [PCSX2 (PlayStation 2)](https://pcsx2.net/) - [GitHub](https://github.com/PCSX2/pcsx2)
 - [RPCS3 (PlayStation 3)](https://rpcs3.net/) - [GitHub](https://github.com/RPCS3/rpcs3)
 - [Yuzu (Nintendo Switch)](https://yuzu-emu.org/) - [GitHub](https://github.com/yuzu-emu/yuzu)
-- [Suyu (Nintendo Switch)](https://suyu.dev/) - [GitHub](https://github.com/suyu-emu/suyu)
+- [Suyu (Nintendo Switch)](https://suyu.dev/) - [Git](https://git.suyu.dev/suyu/suyu)
 - [Ryujinx (Nintendo Switch)](https://ryujinx.org/) - [GitHub](https://github.com/Ryujinx/Ryujinx)
 - [Snes9x (Super Nintendo)](https://www.snes9x.com/) - [GitHub](https://github.com/snes9xgit/snes9x)
