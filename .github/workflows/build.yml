@@ -12,7 +12,8 @@ jobs:
       fail-fast: false
       matrix:
         # yuzu and ryujinx are not available anymore
-        emulator: ["dolphin", "duckstation", "pcsx2", "rpcs3", "snes9x", "suyu"]
+        # suyu quality is down and development is not active anymore
+        emulator: ["dolphin", "duckstation", "pcsx2", "rpcs3", "snes9x"]
     permissions:
       contents: write
     env:

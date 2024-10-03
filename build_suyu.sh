@@ -2,6 +2,5 @@
 
 set -euo pipefail
 
-script_dir=$(readlink -f $(dirname $0))
-$script_dir/run_container.sh suyu \
-    ./suyu/build.sh origin/dev $script_dir/build/suyu .
+echo "Suyu is still available, but last commits on dev branch are broken"
+exit 1
