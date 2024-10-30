@@ -10,6 +10,7 @@ die()
 }
 
 [ $# -eq 3 ] || die "usage: version src_dir appimage_outdir"
+script_dir=$(dirname $(readlink -f $0))
 version=$1;shift
 src_dir=$1;shift
 appimage_outdir=$1;shift
@@ -23,6 +24,8 @@ pushd $src_dir
 git fetch -a
 git checkout $version
 version=$(git rev-list HEAD --count --first-parent)
+
+git apply $script_dir/*.patch
 
 git submodule update --init --recursive
 
