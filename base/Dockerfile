@@ -4,6 +4,11 @@ FROM docker.io/ubuntu:${UBUNTU_VERSION}
 ARG UBUNTU_NAME="null"
 ARG CLANG_VERSION="null"
 
+# fix sources.list for non LTS release
+RUN sed -i /etc/apt/sources.list \
+    -e 's#http://security.ubuntu.com/ubuntu/ lunar-security#http://old-releases.ubuntu.com/ubuntu/ lunar-security#' \
+    -e 's#http://archive.ubuntu.com/ubuntu/ lunar#http://old-releases.ubuntu.com/ubuntu/ lunar#'
+
 RUN apt update && apt install -y wget rsync
 
 RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key > \
