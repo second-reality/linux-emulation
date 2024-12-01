@@ -59,7 +59,7 @@ Comment=A Switch Emulator
 EOF
 
 # create icon
-convert -resize 256x256 ./scripts/org.duckstation.DuckStation.png duckstation.png
+convert -resize 256x256 data/resources/images/duck.png duckstation.png
 
 env QMAKE=$deps_folder/bin/qmake VERSION=$version \
     linuxdeploy-x86_64.AppImage \
