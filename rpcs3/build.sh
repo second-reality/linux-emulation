@@ -26,6 +26,9 @@ version=$(git rev-list HEAD --count --first-parent)
 git submodule update --init --recursive
 mkdir -p build
 pushd build
+export LINKER="lld-${CLANG_VERSION}"
+export CFLAGS="-fuse-ld=${LINKER}"
+export CXXFLAGS="-fuse-ld=${LINKER}"
 cmake -GNinja -DUSE_NATIVE_INSTRUCTIONS=false -DUSE_SYSTEM_CURL=ON -DCMAKE_BUILD_TYPE=Release ..
 ninja
 popd

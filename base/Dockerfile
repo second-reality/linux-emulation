@@ -15,9 +15,10 @@ RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key > \
     /etc/apt/trusted.gpg.d/apt.llvm.org.asc
 RUN echo "deb http://apt.llvm.org/${UBUNTU_NAME}/ llvm-toolchain-${UBUNTU_NAME}-${CLANG_VERSION} main" >> \
     /etc/apt/sources.list
-RUN apt update && apt install -y clang-${CLANG_VERSION}
+RUN apt update && apt install -y clang-${CLANG_VERSION} lld-${CLANG_VERSION}
 ENV CC clang-${CLANG_VERSION}
 ENV CXX clang++-${CLANG_VERSION}
+ENV CLANG_VERSION ${CLANG_VERSION}
 
 # https://appimage-builder.readthedocs.io/en/latest/intro/install.html#manual-installation
 RUN apt update && apt install -y file binutils coreutils desktop-file-utils fakeroot fuse libgdk-pixbuf2.0-dev patchelf python3-pip python3-setuptools squashfs-tools strace util-linux zsync
