@@ -17,7 +17,7 @@ script_dir=$(readlink -f $(dirname $0))
 
 # always build base first
 podman build $script_dir/base -t linux-emulation-base:23.04 \
-    --build-arg=CLANG_VERSION=18 \
+    --build-arg=CLANG_VERSION=19 \
     --build-arg=UBUNTU_VERSION=23.04 \
     --build-arg=UBUNTU_NAME=lunar
 
