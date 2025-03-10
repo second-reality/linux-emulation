@@ -2,5 +2,6 @@
 
 set -euo pipefail
 
-echo "Ryujinx is not available anymore"
-exit 1
+script_dir=$(readlink -f $(dirname $0))
+$script_dir/run_container.sh ryujinx \
+    ./ryujinx/build.sh origin/master $script_dir/build/ryujinx .
