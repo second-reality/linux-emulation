@@ -13,7 +13,7 @@ jobs:
       matrix:
         # yuzu is not available anymore
         # suyu quality is down and development is not active anymore
-        emulator: ["citron", "dolphin", "duckstation", "pcsx2", "rpcs3", "ryujinx", "snes9x"]
+        emulator: ["dolphin", "duckstation", "pcsx2", "rpcs3", "ryujinx", "snes9x"]
     permissions:
       contents: write
     env:
