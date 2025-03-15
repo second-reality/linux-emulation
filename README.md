@@ -58,5 +58,5 @@ Emulators
 - [RPCS3 (PlayStation 3)](https://rpcs3.net/) - [GitHub](https://github.com/RPCS3/rpcs3)
 - [Yuzu (Nintendo Switch)](https://yuzu-emu.org/) - [GitHub](https://github.com/yuzu-emu/yuzu)
 - [Suyu (Nintendo Switch)](https://suyu.dev/) - [Git](https://git.suyu.dev/suyu/suyu)
-- [Ryujinx (Nintendo Switch)](https://ryujinx.org/) - [GitHub](https://github.com/Ryubing/Ryujinx)
+- [Ryujinx (Nintendo Switch)](https://ryujinx.app/) - [GitHub](https://git.ryujinx.app/ryubing/ryujinx/)
 - [Snes9x (Super Nintendo)](https://www.snes9x.com/) - [GitHub](https://github.com/snes9xgit/snes9x)

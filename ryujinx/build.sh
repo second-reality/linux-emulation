@@ -14,7 +14,7 @@ src_dir=$1;shift
 appimage_outdir=$1;shift
 
 if [ ! -d $src_dir ]; then
-    git clone https://github.com/Ryubing/Ryujinx $src_dir
+    git clone https://git.ryujinx.app/ryubing/ryujinx/ $src_dir
 fi
 
 pushd $src_dir
