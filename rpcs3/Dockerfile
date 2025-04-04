@@ -7,7 +7,7 @@ RUN apt update && apt install -y libyaml-cpp-dev libcurl4-openssl-dev
 
 # add latest cmake
 RUN cd /tmp && \
-    wget -q https://github.com/Kitware/CMake/releases/download/v3.27.3/cmake-3.27.3-linux-x86_64.sh &&\
+    wget -q https://github.com/Kitware/CMake/releases/download/v3.31.6/cmake-3.31.6-linux-x86_64.sh &&\
     bash cmake-*.sh --skip-license --prefix=/usr &&\
     rm -rf /tmp/*
 
