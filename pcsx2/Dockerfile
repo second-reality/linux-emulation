@@ -1,4 +1,4 @@
-FROM linux-emulation-base:23.04
+FROM linux-emulation-base:24.04
 
 # https://wiki.pcsx2.net/PCSX2_Documentation/Compiling_on_Linux
 

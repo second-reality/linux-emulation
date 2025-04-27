@@ -16,14 +16,14 @@ script_dir=$(readlink -f $(dirname $0))
 [ -d $script_dir/$image ] || die "$image image can't be found in $script_dir"
 
 # always build base first
-podman build $script_dir/base -t linux-emulation-base:23.04 \
+podman build $script_dir/base -t linux-emulation-base:24.04 \
     --build-arg=CLANG_VERSION=19 \
-    --build-arg=UBUNTU_VERSION=23.04 \
-    --build-arg=UBUNTU_NAME=lunar
+    --build-arg=UBUNTU_VERSION=24.04 \
+    --build-arg=UBUNTU_NAME=noble
 
 target=linux-emulation-$image
 if [ $image == base ]; then
-    target=linux-emulation-base:23.04
+    target=linux-emulation-base:24.04
 else
     podman build $script_dir/$image -t $target
 fi

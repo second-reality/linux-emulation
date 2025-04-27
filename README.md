@@ -3,7 +3,7 @@ Linux emulation
 
 This repository builds [AppImage](https://appimage.org/) for several games emulators.
 
-Minimal distribution expected to run appimage is latest Debian stable.
+Minimal distribution expected to run appimage is latest Debian stable (trixie).
 
 Build is fully automated on [GitHub Actions](https://github.com/second-reality/linux-emulation/blob/master/.github/workflows/build.yml)
 and is scheduled every few hours.

@@ -1,4 +1,4 @@
-FROM linux-emulation-base:23.04
+FROM linux-emulation-base:24.04
 
 # https://github.com/RPCS3/rpcs3/blob/master/BUILDING.md
 RUN apt update && apt install -y build-essential libasound2-dev libpulse-dev libopenal-dev libglew-dev zlib1g-dev libedit-dev libvulkan-dev libudev-dev git libevdev-dev libsdl2-2.0-0 libsdl2-dev libjack-dev libsndio-dev
