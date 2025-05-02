@@ -34,7 +34,7 @@ sed -e 's/^curl /curl --insecure /' -i $deps_script
 # build deps
 if ! diff -q $deps_script $deps_folder/version; then
     rm -rf $deps_folder ${deps_folder}-build # temp dir
-    $deps_script $deps_folder
+    env CFLAGS=-fPIC CXXFLAGS=-fPIC $deps_script $deps_folder
     cp $deps_script $deps_folder/version
 fi
 
