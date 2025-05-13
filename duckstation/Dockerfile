@@ -1,4 +1,4 @@
-FROM linux-emulation-base:24.04
+FROM linux-emulation-base:25.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 

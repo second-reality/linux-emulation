@@ -42,3 +42,5 @@ RUN apt update && apt install -y git cmake build-essential ninja-build imagemagi
 # add some tools to help debug containers
 RUN apt update && apt install -y ncdu apt-file strace
 RUN apt-file update
+
+RUN apt update && apt install -y libfuse2

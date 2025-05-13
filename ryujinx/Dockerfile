@@ -1,9 +1,9 @@
-FROM linux-emulation-base:24.04
+FROM linux-emulation-base:25.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 # https://github.com/Ryujinx/Ryujinx#building
-RUN wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
+RUN wget https://packages.microsoft.com/config/ubuntu/25.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
     dpkg -i packages-microsoft-prod.deb && \
     rm *.deb && \
     apt update && \
