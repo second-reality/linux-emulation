@@ -25,7 +25,7 @@ jobs:
       - run: ./run_container.sh ${{ matrix.emulator }} true
       # then build project
       - run: ./build_${{ matrix.emulator }}.sh
-      - run: gh release upload --clobber build *AppImage
+      - run: gh release upload --clobber build_2 *AppImage
       - run: mv *AppImage ${{ matrix.emulator }}.AppImage
       - run: gh release upload --clobber latest ${{ matrix.emulator }}.AppImage
 
