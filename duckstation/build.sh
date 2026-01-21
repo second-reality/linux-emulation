@@ -25,8 +25,6 @@ git fetch -a
 git checkout $version
 version=$(git rev-list HEAD --count --first-parent)
 
-git apply $script_dir/*.patch
-
 git submodule update --init --recursive
 
 deps_folder=$(pwd)/deps
@@ -41,7 +39,7 @@ fi
 
 mkdir -p build
 pushd build
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="$deps_folder" -G Ninja ..
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="$deps_folder" -DSDL_X11_XSCRNSAVER=OFF -G Ninja ..
 ninja
 popd
 
