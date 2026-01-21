@@ -17,7 +17,7 @@ script_dir=$(readlink -f $(dirname $0))
 
 # always build base first
 podman build $script_dir/base -t linux-emulation-base:25.04 \
-    --build-arg=CLANG_VERSION=19 \
+    --build-arg=CLANG_VERSION=21 \
     --build-arg=UBUNTU_VERSION=25.04 \
     --build-arg=UBUNTU_NAME=plucky
 
