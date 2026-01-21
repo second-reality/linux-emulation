@@ -7,4 +7,4 @@ RUN wget https://packages.microsoft.com/config/ubuntu/25.04/packages-microsoft-p
     dpkg -i packages-microsoft-prod.deb && \
     rm *.deb && \
     apt update && \
-    apt install -y dotnet-sdk-9.0
+    apt install -y dotnet-sdk-10.0
