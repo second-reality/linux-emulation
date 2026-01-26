@@ -170,7 +170,7 @@ CONF_IMPL_VERSION=1
 EOF
 
 # build and package appimage
-./publish/publish-appimage --skip-yes
+./publish/publish-appimage --skip-yes || ./publish/publish-appimage --skip-yes || ./publish/publish-appimage --skip-yes
 mv Ryujinx-*.AppImage ryujinx-$version-x86_64.AppImage
 
 popd
