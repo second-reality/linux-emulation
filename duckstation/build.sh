@@ -27,19 +27,24 @@ version=$(git rev-list HEAD --count --first-parent)
 
 git submodule update --init --recursive
 
-deps_folder=$(pwd)/deps
-deps_script=$(pwd)/scripts/deps/build-dependencies-linux.sh
+deps_folder=$(pwd)/dep/prebuilt
 
 # build deps
-if ! diff -q $deps_script $deps_folder/version; then
-    rm -rf $deps_folder ${deps_folder}-build # temp dir
-    $deps_script $deps_folder
-    cp $deps_script $deps_folder/version
+deps_version=20260224
+if [ ! -f $deps_folder/.$deps_version ]; then
+    rm -rf $deps_folder.tmp $deps_folder
+    mkdir -p $deps_folder.tmp
+    pushd $deps_folder.tmp
+    wget https://github.com/duckstation/dependencies/releases/download/release-$deps_version/deps-linux-x64.tar.xz
+    tar xvf deps-linux-x64.tar.xz
+    popd
+    touch $deps_folder.tmp/.$deps_version
+    mv $deps_folder.tmp $deps_folder
 fi
 
 mkdir -p build
 pushd build
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="$deps_folder" -DSDL_X11_XSCRNSAVER=OFF -G Ninja ..
+cmake -DCMAKE_BUILD_TYPE=Release -DSDL_X11_XSCRNSAVER=OFF -G Ninja ..
 ninja
 popd
 
@@ -59,7 +64,7 @@ EOF
 # create icon
 convert -resize 256x256 data/resources/images/duck.png duckstation.png
 
-env QMAKE=$deps_folder/bin/qmake VERSION=$version \
+env QMAKE=$deps_folder/linux-x64/bin/qmake VERSION=$version \
     linuxdeploy-x86_64.AppImage \
     -e ./build/bin/duckstation-qt \
     --appdir AppDir \

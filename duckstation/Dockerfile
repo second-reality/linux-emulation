@@ -13,3 +13,5 @@ libxkbcommon-dev libdrm-dev libgbm-dev libgl1-mesa-dev libgles2-mesa-dev \
 libegl1-mesa-dev libdbus-1-dev libibus-1.0-dev libudev-dev libthai-dev \
 libpipewire-0.3-dev libwayland-dev libdecor-0-dev liburing-dev
 RUN apt update && apt install -y unzip
+
+RUN cp /usr/lib/x86_64-linux-gnu/libtiff.so.6 /usr/lib/x86_64-linux-gnu/libtiff.so.5
