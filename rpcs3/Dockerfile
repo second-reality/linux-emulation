@@ -12,7 +12,7 @@ RUN cd /tmp && \
     rm -rf /tmp/*
 
 # Latest Qt
-ENV QT_VERSION=6.8.0
+ENV QT_VERSION=6.10.0
 RUN pip install --break-system-packages aqtinstall
 RUN cd tmp &&\
     aqt install-qt linux desktop ${QT_VERSION} --modules qtmultimedia &&\
