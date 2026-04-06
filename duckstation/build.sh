@@ -30,7 +30,7 @@ git submodule update --init --recursive
 deps_folder=$(pwd)/dep/prebuilt
 
 # build deps
-deps_version=20260328
+deps_version=20260404
 if [ ! -f $deps_folder/.$deps_version ]; then
     rm -rf $deps_folder.tmp $deps_folder
     mkdir -p $deps_folder.tmp
