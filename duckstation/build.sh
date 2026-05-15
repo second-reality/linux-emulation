@@ -30,7 +30,14 @@ git submodule update --init --recursive
 deps_folder=$(pwd)/dep/prebuilt
 
 # build deps
-deps_version=20260404
+# https://github.com/duckstation/dependencies/releases/
+#deps_version=20260512
+deps_version=$(git ls-remote --tags https://github.com/duckstation/dependencies |
+               sed -e 's#.*refs/tags/##' |
+               grep release |
+               sed -e 's/release-//' |
+               sort -n |
+               tail -n 1)
 if [ ! -f $deps_folder/.$deps_version ]; then
     rm -rf $deps_folder.tmp $deps_folder
     mkdir -p $deps_folder.tmp
